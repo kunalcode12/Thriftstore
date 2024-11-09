@@ -16,7 +16,12 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "https://thriftera.vercel.app",
+  })
+);
 // app.use(
 //   cors({
 //     origin: "https://thriftstore-sage.vercel.app/",
