@@ -19,7 +19,7 @@ app.use(express.json());
 // app.use(cors())
 app.use(
   cors({
-    origin: "https://thriftera.vercel.app",
+    origin: "https://thriftstore-sage.vercel.app/",
   })
 );
 
