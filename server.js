@@ -22,14 +22,24 @@ app.use(express.json());
 //     origin: "https://thriftera.vercel.app",
 //   })
 // );
-const corsOptions = {
-  origin: "https://thriftera.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // Enable if you're using cookies or authentication
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://thriftera.vercel.app",
+];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 // api endpoints
 app.use("/api/user", userRouter);
