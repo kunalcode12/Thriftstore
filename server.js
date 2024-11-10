@@ -17,11 +17,12 @@ connectCloudinary();
 // middlewares
 app.use(express.json());
 // app.use(cors());
-app.use(
-  cors({
-    origin: "https://thriftera.vercel.app", // Allow your frontend's origin
-  })
-);
+const corsOptions = {
+  origin: "https://thriftera.vercel.app", // Allow only your frontend domain
+  optionsSuccessStatus: 200, // For legacy browsers
+};
+
+app.use(cors(corsOptions));
 
 // api endpoints
 app.use("/api/user", userRouter);
