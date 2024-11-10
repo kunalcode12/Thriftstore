@@ -28,8 +28,4 @@ app.get("/", (req, res) => {
   res.send("API Working");
 });
 
-app.options("*", cors(corsOptions));
-
 app.listen(port, () => console.log("Server started on PORT : " + port));
-
-export default app;
