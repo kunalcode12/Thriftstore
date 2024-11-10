@@ -36,3 +36,5 @@ app.get("/", (req, res) => {
 app.options("*", cors(corsOptions));
 
 app.listen(port, () => console.log("Server started on PORT : " + port));
+
+export default app;
