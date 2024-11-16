@@ -15,7 +15,7 @@ connectDB();
 connectCloudinary();
 
 const allowedOrigins = [
-  "https://thriftera-ebon.vercel.app",
+  "https://thriftera-ebon.vercel.app/",
   "https://thrift-admin-seven.vercel.app/",
 ];
 
